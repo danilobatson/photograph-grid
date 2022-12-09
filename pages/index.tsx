@@ -9,7 +9,7 @@ import {
   ImageGrid,
   ImageUpload,
   InputUpload,
-} from '../components';
+} from './components/';
 
 export type ImageType = {
   newId: number;
