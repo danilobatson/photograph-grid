@@ -3,7 +3,7 @@
 }
 
 .main {
-  min-height: 100vh;
+  min-height: 50vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -11,6 +11,21 @@
   justify-content: center;
   align-items: center;
 }
+
+
+
+.imagesCount {
+  position: absolute;
+  margin-top: 15rem;
+  font-weight: 700;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 
 .footer {
   display: flex;
