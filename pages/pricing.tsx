@@ -19,6 +19,7 @@ import Image from 'next/image';
 import {
   ImageSearch,
   ImageCardUpload,
+  PageInfo,
   Description,
   ImageGrid,
   ImageUpload,
@@ -232,32 +233,7 @@ export default function Pricing() {
           </div>
         </Toolbar>
       </AppBar>
-      <Container
-        disableGutters
-        maxWidth='sm'
-        component='main'
-        sx={{ pt: 8, pb: 6 }}
-      >
-        <Typography
-          component='h1'
-          variant='h2'
-          align='center'
-          color='text.primary'
-          gutterBottom
-        >
-          Image Uploader
-        </Typography>
-        <Typography
-          variant='h5'
-          align='center'
-          color='text.secondary'
-          component='p'
-        >
-          Get started by uploading your images to <code>api/photos</code>
-          <br />
-          <em>Image size limited to 1MB</em>
-        </Typography>
-      </Container>
+      <PageInfo />
       <Typography
         variant='h5'
         align='left'

@@ -5,11 +5,13 @@ import InputUpload from './InputUpload';
 import Description from './Description';
 import ImageSearch from './ImageSearch';
 import ImageCardUpload from './ImageCardUpload';
+import PageInfo from './PageInfo';
 
 export {
   ImageGrid,
   ImageSearch,
   ImageCardUpload,
+  PageInfo,
   Description,
   ImageUpload,
   ImageUpload2,
