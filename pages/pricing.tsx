@@ -16,7 +16,7 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
-
+import { Input } from '@mui/material';
 const tiers = [
   {
     title: 'Free',
@@ -175,6 +175,18 @@ function PricingContent() {
           <nav></nav>
           <div>
             <form method='post'>
+              <div>
+                <label htmlFor='name'>Type In A Name For Your Photo: </label>
+              </div>
+              <Input
+                id='name'
+                type='text'
+                name='name'
+                size='small'
+                value={name}
+                onChange={changeName}
+                required
+              />
               <div>
                 <label htmlFor='name'>Type In A Name For Your Photo: </label>
               </div>
