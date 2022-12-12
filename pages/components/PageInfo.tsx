@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../../styles/Home.module.css';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 

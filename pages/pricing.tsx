@@ -20,6 +20,7 @@ import {
   ImageSearch,
   ImageCardUpload,
   PageInfo,
+  ImageGallery,
   Description,
   ImageGrid,
   ImageUpload,
@@ -246,39 +247,7 @@ export default function Pricing() {
         <Grid container spacing={5} alignItems='flex-end'>
           {images &&
             images.map((image) => (
-              <Grid item key={image.newId} xs={12} md={4}>
-                <Card>
-                  <CardHeader
-                    title={image.photoName}
-                    subheaderTypographyProps={{
-                      align: 'center',
-                    }}
-                    sx={{
-                      backgroundColor: (theme) =>
-                        theme.palette.mode === 'light'
-                          ? theme.palette.grey[200]
-                          : theme.palette.grey[700],
-                    }}
-                  />
-                  <CardContent>
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'baseline',
-                        mb: 2,
-                      }}
-                    >
-                      <Image
-                        src={image.imageSrc}
-                        width={200}
-                        height={200}
-                        alt='Uploaded image'
-                      />
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
+              <ImageGallery key={image.newId} image={image} />
             ))}
         </Grid>
       </Container>

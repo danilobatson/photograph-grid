@@ -6,12 +6,14 @@ import Description from './Description';
 import ImageSearch from './ImageSearch';
 import ImageCardUpload from './ImageCardUpload';
 import PageInfo from './PageInfo';
+import ImageGallery from './ImageGallery';
 
 export {
   ImageGrid,
   ImageSearch,
   ImageCardUpload,
   PageInfo,
+  ImageGallery,
   Description,
   ImageUpload,
   ImageUpload2,
