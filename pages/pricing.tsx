@@ -108,7 +108,7 @@ function PricingContent() {
 
   const { search, name, images, uploadData, imageSrc } = state;
 
-  console.log(name)
+  console.log(name);
   const updateSearch = (e: React.SyntheticEvent) => {
     const target = e.target as HTMLInputElement;
     dispatch({ type: 'SET_SEARCH', payload: target.value });
@@ -175,19 +175,28 @@ function PricingContent() {
           <nav></nav>
           <div>
             <form method='post'>
-              <div>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <label htmlFor='name'>Type In A Name For Your Photo: </label>
+                <Input
+                  id='name'
+                  type='text'
+                  name='name'
+                  size='small'
+                  value={name}
+                  onChange={changeName}
+                  required
+                />
+                <Input
+                  id='name'
+                  type='file'
+                  name='name'
+                  size='small'
+                  value={name}
+                  onChange={changeName}
+                  required
+                />
               </div>
-              <Input
-                id='name'
-                type='text'
-                name='name'
-                size='small'
-                value={name}
-                onChange={changeName}
-                required
-              />
-              <div>
+              {/* <div>
                 <label htmlFor='name'>Type In A Name For Your Photo: </label>
               </div>
               <input
@@ -197,8 +206,8 @@ function PricingContent() {
                 value={name}
                 onChange={changeName}
                 required
-              />
-              <input
+              /> */}
+              {/* <input
                 id='file'
                 type='file'
                 name='file'
@@ -206,7 +215,7 @@ function PricingContent() {
                 multiple
                 onChange={handleOnChange}
                 required
-              />
+              /> */}
             </form>
           </div>
         </Toolbar>
