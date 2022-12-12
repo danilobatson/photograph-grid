@@ -102,9 +102,12 @@ function PricingContent() {
           <Typography variant='h6' color='inherit' noWrap sx={{ flexGrow: 1 }}>
             <TextField
               id='standard-basic'
-              label='Standard'
+              label='Search images...'
               variant='standard'
               size='small'
+              type='search'
+              helperText='Search images by name'
+              multiline
             />
           </Typography>
           <nav></nav>
