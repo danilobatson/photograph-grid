@@ -207,9 +207,6 @@ function PricingContent() {
                 onChange={handleOnChange}
                 required
               />
-              {imageSrc && !uploadData && (
-                <ImageUpload2 name={name} imageSrc={imageSrc} />
-              )}
             </form>
           </div>
         </Toolbar>
@@ -244,9 +241,6 @@ function PricingContent() {
       {/* End hero unit */}
       <Container maxWidth='md' component='main'>
         <Grid container spacing={5} alignItems='flex-end'>
-          {imageSrc && !uploadData && (
-            <ImageUpload name={name} imageSrc={imageSrc} />
-          )}
           {tiers.map((tier) => (
             // Enterprise card is full width at sm breakpoint
             <Grid
