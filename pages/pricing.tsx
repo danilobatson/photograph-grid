@@ -56,7 +56,6 @@ const tiers = [
   },
 ];
 
-
 export type ImageType = {
   newId: number;
   imageSrc: string;
@@ -86,9 +85,7 @@ type ACTIONTYPE =
   | { type: 'SET_UPLOAD_DATA'; payload: string | undefined }
   | { type: 'SET_NAME'; payload: string };
 
-
 function PricingContent() {
-
   const reducer = (state: State, action: ACTIONTYPE) => {
     switch (action.type) {
       case 'SET_IMAGES':
@@ -109,6 +106,12 @@ function PricingContent() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const { search, name, images, uploadData, imageSrc } = state;
+
+  console.log(search);
+  const updateSearch = (e: React.SyntheticEvent) => {
+    const target = e.target as HTMLInputElement;
+    dispatch({ type: 'SET_SEARCH', payload: target.value });
+  };
 
   return (
     <>
@@ -133,6 +136,7 @@ function PricingContent() {
               helperText='Search images by name'
               multiline
               value={search}
+              onChange={updateSearch}
             />
           </Typography>
           <nav></nav>
