@@ -1,32 +1,19 @@
 import React, { useReducer, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
-import TextField from '@mui/material/TextField';
 import axios from 'axios';
-import Image from 'next/image';
 
 import {
   ImageSearch,
   PageInfo,
   ImageGallery,
   ImageUploadForm,
-  Description,
-  ImageGrid,
-  ImageUpload,
-  ImageUpload2,
-  InputUpload,
-} from './components/';
+  } from './components/';
 
 export type ImageType = {
   newId: number;
@@ -37,8 +24,7 @@ export type ImageType = {
 interface State {
   imageSrc: string;
   search: string;
-  uploadData: string | undefined;
-  images?: ImageType[];
+  uploadData:?: ImageType[];
   name: string;
 }
 

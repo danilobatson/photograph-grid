@@ -154,7 +154,7 @@ export default function Home() {
 
   useEffect(() => {
     const imagesSearch = (data: ImageType[]) => {
-      console.log('search')
+      console.log('search');
       const filter = data.filter((image) => {
         const searchTerm = search.toLowerCase();
         return image.photoName.toLowerCase().includes(searchTerm);
@@ -183,9 +183,7 @@ export default function Home() {
           alignItems: 'stretch',
         }}
       >
-        <div
-          className={styles.flexColumn}
-        >
+        <div className={styles.flexColumn}>
           <div>
             <input
               type='text'
@@ -194,9 +192,7 @@ export default function Home() {
               placeholder='Search images...'
             />
           </div>
-          <div
-            className={styles.imagesCount}
-          >
+          <div className={styles.imagesCount}>
             {images && images.length} images
           </div>
         </div>
@@ -215,9 +211,7 @@ export default function Home() {
           )}
         </form>
       </div>
-      <main
-        className={styles.main}
-      >
+      <main className={styles.main}>
         <div className={styles.grid}>
           {images &&
             images.map((image) => {
