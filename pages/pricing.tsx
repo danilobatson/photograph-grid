@@ -241,6 +241,40 @@ function PricingContent() {
       {/* End hero unit */}
       <Container maxWidth='md' component='main'>
         <Grid container spacing={5} alignItems='flex-end'>
+          <Card>
+            <CardHeader
+              title={name}
+              sx={{
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? theme.palette.grey[200]
+                    : theme.palette.grey[700],
+              }}
+            />
+            <CardContent>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'baseline',
+                  mb: 2,
+                }}
+              ></Box>
+              {imageSrc && !uploadData && (
+                <Image
+                  src={imageSrc}
+                  width={150}
+                  height={150}
+                  alt='Uploaded image'
+                />
+              )}
+            </CardContent>
+            <CardActions>
+              <Button fullWidth variant='contained'>
+                Upload File
+              </Button>
+            </CardActions>
+          </Card>
           {tiers.map((tier) => (
             // Enterprise card is full width at sm breakpoint
             <Grid
@@ -271,47 +305,8 @@ function PricingContent() {
                       alignItems: 'baseline',
                       mb: 2,
                     }}
-                  >
-                    <Typography
-                      component='h2'
-                      variant='h3'
-                      color='text.primary'
-                    >
-                      ${tier.price}
-                    </Typography>
-                    <Typography variant='h6' color='text.secondary'>
-                      /mo
-                    </Typography>
-                  </Box>
-                  {imageSrc && !uploadData && (
-                    <Image
-                      src={imageSrc}
-                      width={150}
-                      height={150}
-                      alt='Uploaded image'
-                    />
-                  )}
-                  <ul>
-                    {tier.description.map((line) => (
-                      <Typography
-                        component='li'
-                        variant='subtitle1'
-                        align='center'
-                        key={line}
-                      >
-                        {line}
-                      </Typography>
-                    ))}
-                  </ul>
+                  ></Box>
                 </CardContent>
-                <CardActions>
-                  <Button
-                    fullWidth
-                    variant={tier.buttonVariant as 'outlined' | 'contained'}
-                  >
-                    {tier.buttonText}
-                  </Button>
-                </CardActions>
               </Card>
             </Grid>
           ))}
