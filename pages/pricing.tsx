@@ -16,6 +16,14 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
+import {
+  Description,
+  ImageGrid,
+  ImageUpload,
+  ImageUpload2,
+  InputUpload,
+} from './components/';
+
 const tiers = [
   {
     title: 'Free',
@@ -197,6 +205,9 @@ function PricingContent() {
                 onChange={handleOnChange}
                 required
               />
+              {imageSrc && !uploadData && (
+                <ImageUpload2 name={name} imageSrc={imageSrc} />
+              )}
             </form>
           </div>
         </Toolbar>
@@ -231,6 +242,9 @@ function PricingContent() {
       {/* End hero unit */}
       <Container maxWidth='md' component='main'>
         <Grid container spacing={5} alignItems='flex-end'>
+          {imageSrc && !uploadData && (
+            <ImageUpload name={name} imageSrc={imageSrc} />
+          )}
           {tiers.map((tier) => (
             // Enterprise card is full width at sm breakpoint
             <Grid
@@ -276,6 +290,9 @@ function PricingContent() {
                       /mo
                     </Typography>
                   </Box>
+                  {imageSrc && !uploadData && (
+                    <ImageUpload name={name} imageSrc={imageSrc} />
+                  )}
                   <ul>
                     {tier.description.map((line) => (
                       <Typography
