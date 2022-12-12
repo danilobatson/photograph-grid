@@ -308,7 +308,6 @@ function PricingContent() {
                       Upload Image
                     </Button>
                   </CardActions>
-                  {/* <button>Upload File</button> */}
                 </Card>
               )}
             </form>
@@ -342,44 +341,54 @@ function PricingContent() {
           <em>Image size limited to 1MB</em>
         </Typography>
       </Container>
+      <Typography
+        variant='h5'
+        align='left'
+        color='text.secondary'
+        component='p'
+      >
+        {images.length} images
+      </Typography>
       {/* End hero unit */}
       <Container maxWidth='md' component='main'>
         <Grid container spacing={5} alignItems='flex-end'>
-          {tiers.map((tier) => (
-            // Enterprise card is full width at sm breakpoint
-            <Grid
-              item
-              key={tier.title}
-              xs={12}
-              sm={tier.title === 'Enterprise' ? 12 : 6}
-              md={4}
-            >
-              <Card>
-                <CardHeader
-                  title={name}
-                  subheaderTypographyProps={{
-                    align: 'center',
-                  }}
-                  sx={{
-                    backgroundColor: (theme) =>
-                      theme.palette.mode === 'light'
-                        ? theme.palette.grey[200]
-                        : theme.palette.grey[700],
-                  }}
-                />
-                <CardContent>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'baseline',
-                      mb: 2,
+          {images &&
+            images.map((image) => (
+              // Enterprise card is full width at sm breakpoint
+              <Grid item key={image.newId} xs={12} sm={image.photoName} md={4}>
+                <Card>
+                  <CardHeader
+                    title={image.photoName}
+                    subheaderTypographyProps={{
+                      align: 'center',
                     }}
-                  ></Box>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+                    sx={{
+                      backgroundColor: (theme) =>
+                        theme.palette.mode === 'light'
+                          ? theme.palette.grey[200]
+                          : theme.palette.grey[700],
+                    }}
+                  />
+                  <CardContent>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'baseline',
+                        mb: 2,
+                      }}
+                    >
+                      <Image
+                        src={image.imageSrc}
+                        width={200}
+                        height={200}
+                        alt='Uploaded image'
+                      />
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
         </Grid>
       </Container>
     </>
