@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useReducer, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -85,12 +85,11 @@ const footers = [
   },
 ];
 
-
 export type ImageType = {
   newId: number;
   imageSrc: string;
   photoName: string;
-}
+};
 
 interface State {
   imageSrc: string;
