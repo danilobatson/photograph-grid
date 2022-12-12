@@ -107,10 +107,42 @@ function PricingContent() {
 
   const { search, name, images, uploadData, imageSrc } = state;
 
-  console.log(search);
+  console.log(name)
   const updateSearch = (e: React.SyntheticEvent) => {
     const target = e.target as HTMLInputElement;
     dispatch({ type: 'SET_SEARCH', payload: target.value });
+  };
+
+  function handleOnChange(event: React.SyntheticEvent) {
+    const target = event.target as HTMLInputElement;
+    const reader = new FileReader();
+
+    let size;
+    let file;
+
+    if (target.files) {
+      file = target.files[0];
+      size = target.files[0].size;
+      reader.readAsDataURL(file);
+    }
+
+    if (size && size > 1000000) {
+      alert('File too large');
+      return;
+    }
+
+    reader.onload = function (onLoadEvent) {
+      dispatch({
+        type: 'SET_IMAGE_SRC',
+        payload: onLoadEvent.target?.result as string,
+      });
+      dispatch({ type: 'SET_UPLOAD_DATA', payload: undefined });
+    };
+  }
+
+  const changeName = (e: React.SyntheticEvent) => {
+    const target = e.target as HTMLInputElement;
+    dispatch({ type: 'SET_NAME', payload: target.value });
   };
 
   return (
@@ -140,9 +172,30 @@ function PricingContent() {
             />
           </Typography>
           <nav></nav>
-          <Button href='#' variant='outlined' sx={{ my: 1, mx: 1.5 }}>
-            Login
-          </Button>
+          <div>
+            <form method='post'>
+              <div>
+                <label htmlFor='name'>Type In A Name For Your Photo: </label>
+              </div>
+              <input
+                id='name'
+                type='text'
+                name='name'
+                value={name}
+                onChange={changeName}
+                required
+              />
+              <input
+                id='file'
+                type='file'
+                name='file'
+                accept='image/*'
+                multiple
+                onChange={handleOnChange}
+                required
+              />
+            </form>
+          </div>
         </Toolbar>
       </AppBar>
       {/* Hero unit */}
