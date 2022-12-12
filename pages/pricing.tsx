@@ -130,6 +130,7 @@ function PricingContent() {
           component='p'
         >
           Get started by uploading your images to <code>api/photos</code>
+          <br />
           <em>Image size limited to 1MB</em>
         </Typography>
       </Container>
