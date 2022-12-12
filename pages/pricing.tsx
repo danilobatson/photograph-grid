@@ -104,30 +104,7 @@ function PricingContent() {
             Company name
           </Typography>
           <nav>
-            <Link
-              variant='button'
-              color='text.primary'
-              href='#'
-              sx={{ my: 1, mx: 1.5 }}
-            >
-              Features
-            </Link>
-            <Link
-              variant='button'
-              color='text.primary'
-              href='#'
-              sx={{ my: 1, mx: 1.5 }}
-            >
-              Enterprise
-            </Link>
-            <Link
-              variant='button'
-              color='text.primary'
-              href='#'
-              sx={{ my: 1, mx: 1.5 }}
-            >
-              Support
-            </Link>
+            
           </nav>
           <Button href='#' variant='outlined' sx={{ my: 1, mx: 1.5 }}>
             Login
