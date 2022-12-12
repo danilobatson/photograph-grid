@@ -16,7 +16,6 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
-import { Input } from '@mui/material';
 const tiers = [
   {
     title: 'Free',
@@ -108,13 +107,12 @@ function PricingContent() {
 
   const { search, name, images, uploadData, imageSrc } = state;
 
-  console.log(name);
   const updateSearch = (e: React.SyntheticEvent) => {
     const target = e.target as HTMLInputElement;
     dispatch({ type: 'SET_SEARCH', payload: target.value });
   };
 
-  function handleOnChange(event: React.SyntheticEvent) {
+  const handleOnChange = (event: React.SyntheticEvent) => {
     const target = event.target as HTMLInputElement;
     const reader = new FileReader();
 
@@ -139,7 +137,7 @@ function PricingContent() {
       });
       dispatch({ type: 'SET_UPLOAD_DATA', payload: undefined });
     };
-  }
+  };
 
   const changeName = (e: React.SyntheticEvent) => {
     const target = e.target as HTMLInputElement;
@@ -190,6 +188,15 @@ function PricingContent() {
                   required
                 />
               </div>
+              <input
+                id='file'
+                type='file'
+                name='file'
+                accept='image/*'
+                multiple
+                onChange={handleOnChange}
+                required
+              />
             </form>
           </div>
         </Toolbar>
