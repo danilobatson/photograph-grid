@@ -8,10 +8,8 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
-import StarIcon from '@mui/icons-material/StarBorder';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
@@ -347,7 +345,7 @@ function PricingContent() {
         color='text.secondary'
         component='p'
       >
-        {images.length} images
+        {images && images.length} images
       </Typography>
       {/* End hero unit */}
       <Container maxWidth='md' component='main'>
@@ -355,7 +353,7 @@ function PricingContent() {
           {images &&
             images.map((image) => (
               // Enterprise card is full width at sm breakpoint
-              <Grid item key={image.newId} xs={12} sm={image.photoName} md={4}>
+              <Grid item key={image.newId} xs={12} md={4}>
                 <Card>
                   <CardHeader
                     title={image.photoName}
