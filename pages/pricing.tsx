@@ -24,46 +24,6 @@ import {
   InputUpload,
 } from './components/';
 
-const tiers = [
-  {
-    title: 'Free',
-    price: '0',
-    description: [
-      '10 users included',
-      '2 GB of storage',
-      'Help center access',
-      'Email support',
-    ],
-    buttonText: 'Sign up for free',
-    buttonVariant: 'outlined',
-  },
-  {
-    title: 'Pro',
-    subheader: 'Most popular',
-    price: '15',
-    description: [
-      '20 users included',
-      '10 GB of storage',
-      'Help center access',
-      'Priority email support',
-    ],
-    buttonText: 'Get started',
-    buttonVariant: 'contained',
-  },
-  {
-    title: 'Enterprise',
-    price: '30',
-    description: [
-      '50 users included',
-      '30 GB of storage',
-      'Help center access',
-      'Phone & email support',
-    ],
-    buttonText: 'Contact us',
-    buttonVariant: 'outlined',
-  },
-];
-
 export type ImageType = {
   newId: number;
   imageSrc: string;
@@ -93,7 +53,7 @@ type ACTIONTYPE =
   | { type: 'SET_UPLOAD_DATA'; payload: string | undefined }
   | { type: 'SET_NAME'; payload: string };
 
-function PricingContent() {
+export default function Pricing() {
   const reducer = (state: State, action: ACTIONTYPE) => {
     switch (action.type) {
       case 'SET_IMAGES':
@@ -312,7 +272,6 @@ function PricingContent() {
           </div>
         </Toolbar>
       </AppBar>
-      {/* Hero unit */}
       <Container
         disableGutters
         maxWidth='sm'
@@ -347,12 +306,10 @@ function PricingContent() {
       >
         {images && images.length} images
       </Typography>
-      {/* End hero unit */}
       <Container maxWidth='md' component='main'>
         <Grid container spacing={5} alignItems='flex-end'>
           {images &&
             images.map((image) => (
-              // Enterprise card is full width at sm breakpoint
               <Grid item key={image.newId} xs={12} md={4}>
                 <Card>
                   <CardHeader
@@ -391,8 +348,4 @@ function PricingContent() {
       </Container>
     </>
   );
-}
-
-export default function Pricing() {
-  return <PricingContent />;
 }
