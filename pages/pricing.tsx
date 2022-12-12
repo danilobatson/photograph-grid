@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
+import TextField from '@mui/material/TextField';
 
 const tiers = [
   {
@@ -99,7 +100,12 @@ function PricingContent() {
       >
         <Toolbar sx={{ flexWrap: 'wrap' }}>
           <Typography variant='h6' color='inherit' noWrap sx={{ flexGrow: 1 }}>
-            Company name
+            <TextField
+              id='standard-basic'
+              label='Standard'
+              variant='standard'
+              size='small'
+            />
           </Typography>
           <nav></nav>
           <Button href='#' variant='outlined' sx={{ my: 1, mx: 1.5 }}>
