@@ -107,7 +107,37 @@ const initialState: State = {
   name: '',
 };
 
+type ACTIONTYPE =
+  | { type: 'SET_IMAGES'; payload: ImageType[] }
+  | { type: 'SET_IMAGE_SRC'; payload: string }
+  | { type: 'SET_SEARCH'; payload: string }
+  | { type: 'SET_UPLOAD_DATA'; payload: string | undefined }
+  | { type: 'SET_NAME'; payload: string };
+
+
 function PricingContent() {
+
+  const reducer = (state: State, action: ACTIONTYPE) => {
+    switch (action.type) {
+      case 'SET_IMAGES':
+        return { ...state, images: action.payload };
+      case 'SET_IMAGE_SRC':
+        return { ...state, imageSrc: action.payload };
+      case 'SET_SEARCH':
+        return { ...state, search: action.payload };
+      case 'SET_UPLOAD_DATA':
+        return { ...state, uploadData: action.payload };
+      case 'SET_NAME':
+        return { ...state, name: action.payload };
+      default:
+        return state;
+    }
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const { search, name, images, uploadData, imageSrc } = state;
+  
   return (
     <>
       <GlobalStyles
