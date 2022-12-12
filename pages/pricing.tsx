@@ -16,6 +16,8 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
+import Image from 'next/image';
+
 import {
   Description,
   ImageGrid,
