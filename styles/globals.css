@@ -8,7 +8,7 @@ body {
 
 input {
   background-color: #d1ced0ce !important;
-  color: black
+  color: black;
 }
 
 label {
@@ -22,7 +22,6 @@ label {
   margin-top: 0.5rem;
 }
 
-
 a {
   color: inherit;
   text-decoration: none;
@@ -31,9 +30,6 @@ a {
 * {
   box-sizing: border-box;
 }
-
-
-
 
 @media (prefers-color-scheme: dark) {
   html {
