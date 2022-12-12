@@ -17,6 +17,7 @@ import axios from 'axios';
 import Image from 'next/image';
 
 import {
+  ImageSearch,
   Description,
   ImageGrid,
   ImageUpload,
@@ -194,19 +195,8 @@ export default function Pricing() {
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
         <Toolbar sx={{ flexWrap: 'wrap' }}>
-          <Typography variant='h6' color='inherit' noWrap sx={{ flexGrow: 1 }}>
-            <TextField
-              id='standard-basic'
-              label='Search images...'
-              variant='standard'
-              size='small'
-              type='search'
-              helperText='Search images by name'
-              multiline
-              value={search}
-              onChange={updateSearch}
-            />
-          </Typography>
+          <ImageSearch search={search} updateSearch={updateSearch} />
+
           <nav></nav>
           <div>
             <form method='post' onSubmit={submitImage}>
