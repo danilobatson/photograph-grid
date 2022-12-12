@@ -154,6 +154,75 @@ function PricingContent() {
     dispatch({ type: 'SET_NAME', payload: target.value });
   };
 
+  const submitImage = async (event: React.SyntheticEvent) => {
+    event.preventDefault();
+
+    const form = event.target;
+
+    //@ts-ignore
+    const nameInput: HTMLInputElement = Array.from(form.elements).find(
+      //@ts-ignore
+      ({ name }) => {
+        return name === 'name';
+      }
+    );
+
+    const photoName = nameInput.value;
+
+    let newImage: ImageType = {
+      newId: 1,
+      imageSrc: imageSrc,
+      photoName,
+    };
+
+    if (images) {
+      newImage.newId = images.length + 1;
+    }
+
+    axios
+      .post('/api/photos', { newImage })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    dispatch({
+      type: 'SET_IMAGES',
+      payload: [...(images as ImageType[]), newImage],
+    });
+    dispatch({
+      type: 'SET_IMAGE_SRC',
+      payload: '' as string,
+    });
+    dispatch({
+      type: 'SET_NAME',
+      payload: '' as string,
+    });
+
+    const { target } = event;
+    if (target instanceof HTMLFormElement) {
+      target.reset();
+    }
+  };
+
+  useEffect(() => {
+    const imagesSearch = (data: ImageType[]) => {
+      console.log('search');
+      const filter = data.filter((image) => {
+        const searchTerm = search.toLowerCase();
+        return image.photoName.toLowerCase().includes(searchTerm);
+      });
+      return filter;
+    };
+
+    axios.get<ImageType[]>('/api/photos').then((res) => {
+      const data = imagesSearch(res.data);
+      dispatch({ type: 'SET_IMAGES', payload: data });
+    });
+  }, [search, imageSrc]);
+
   return (
     <>
       <GlobalStyles
@@ -182,7 +251,7 @@ function PricingContent() {
           </Typography>
           <nav></nav>
           <div>
-            <form method='post'>
+            <form method='post' onSubmit={submitImage}>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <TextField
                   id='standard-basic'
@@ -234,11 +303,7 @@ function PricingContent() {
                       />
                     </Box>
                   </CardContent>
-                  <CardActions>
-                    <Button fullWidth variant='contained'>
-                      Upload File
-                    </Button>
-                  </CardActions>
+                  <button>Upload File</button>
                 </Card>
               )}
             </form>
