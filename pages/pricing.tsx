@@ -92,6 +92,22 @@ export type ImageType = {
   photoName: string;
 }
 
+interface State {
+  imageSrc: string;
+  search: string;
+  uploadData: string | undefined;
+  images?: ImageType[];
+  name: string;
+}
+
+const initialState: State = {
+  imageSrc: '',
+  search: '',
+  uploadData: '',
+  images: [],
+  name: '',
+};
+
 function PricingContent() {
   return (
     <>
