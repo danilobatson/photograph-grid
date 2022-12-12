@@ -85,6 +85,13 @@ const footers = [
   },
 ];
 
+
+export type ImageType = {
+  newId: number;
+  imageSrc: string;
+  photoName: string;
+}
+
 function PricingContent() {
   return (
     <>
