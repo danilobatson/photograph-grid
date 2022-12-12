@@ -293,7 +293,12 @@ function PricingContent() {
                     </Typography>
                   </Box>
                   {imageSrc && !uploadData && (
-                    <ImageUpload name={name} imageSrc={imageSrc} />
+                    <Image
+                      src={imageSrc}
+                      width={150}
+                      height={150}
+                      alt='Uploaded image'
+                    />
                   )}
                   <ul>
                     {tier.description.map((line) => (
