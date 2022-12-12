@@ -207,6 +207,40 @@ function PricingContent() {
                 onChange={handleOnChange}
                 required
               />
+              <Card>
+                <CardHeader
+                  title={name}
+                  sx={{
+                    backgroundColor: (theme) =>
+                      theme.palette.mode === 'light'
+                        ? theme.palette.grey[200]
+                        : theme.palette.grey[700],
+                  }}
+                />
+                <CardContent>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'baseline',
+                      mb: 2,
+                    }}
+                  ></Box>
+                  {imageSrc && !uploadData && (
+                    <Image
+                      src={imageSrc}
+                      width={150}
+                      height={150}
+                      alt='Uploaded image'
+                    />
+                  )}
+                </CardContent>
+                <CardActions>
+                  <Button fullWidth variant='contained'>
+                    Upload File
+                  </Button>
+                </CardActions>
+              </Card>
             </form>
           </div>
         </Toolbar>
@@ -241,40 +275,6 @@ function PricingContent() {
       {/* End hero unit */}
       <Container maxWidth='md' component='main'>
         <Grid container spacing={5} alignItems='flex-end'>
-          <Card>
-            <CardHeader
-              title={name}
-              sx={{
-                backgroundColor: (theme) =>
-                  theme.palette.mode === 'light'
-                    ? theme.palette.grey[200]
-                    : theme.palette.grey[700],
-              }}
-            />
-            <CardContent>
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'baseline',
-                  mb: 2,
-                }}
-              ></Box>
-              {imageSrc && !uploadData && (
-                <Image
-                  src={imageSrc}
-                  width={150}
-                  height={150}
-                  alt='Uploaded image'
-                />
-              )}
-            </CardContent>
-            <CardActions>
-              <Button fullWidth variant='contained'>
-                Upload File
-              </Button>
-            </CardActions>
-          </Card>
           {tiers.map((tier) => (
             // Enterprise card is full width at sm breakpoint
             <Grid
