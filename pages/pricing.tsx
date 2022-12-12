@@ -15,8 +15,6 @@ import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 
-
-
 const tiers = [
   {
     title: 'Free',
@@ -88,7 +86,7 @@ const footers = [
 
 function PricingContent() {
   return (
-    <React.Fragment>
+    <>
       <GlobalStyles
         styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }}
       />
@@ -103,9 +101,7 @@ function PricingContent() {
           <Typography variant='h6' color='inherit' noWrap sx={{ flexGrow: 1 }}>
             Company name
           </Typography>
-          <nav>
-            
-          </nav>
+          <nav></nav>
           <Button href='#' variant='outlined' sx={{ my: 1, mx: 1.5 }}>
             Login
           </Button>
@@ -211,7 +207,7 @@ function PricingContent() {
           ))}
         </Grid>
       </Container>
-    </React.Fragment>
+    </>
   );
 }
 
