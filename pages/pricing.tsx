@@ -176,46 +176,20 @@ function PricingContent() {
           <div>
             <form method='post'>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <label htmlFor='name'>Type In A Name For Your Photo: </label>
-                <Input
-                  id='name'
-                  type='text'
-                  name='name'
+                <TextField
+                  id='standard-basic'
+                  label='Puppies'
+                  variant='standard'
                   size='small'
-                  value={name}
-                  onChange={changeName}
-                  required
-                />
-                <Input
-                  id='name'
-                  type='file'
+                  type='search'
+                  helperText='Insert a name for your photo'
+                  multiline
                   name='name'
-                  size='small'
                   value={name}
                   onChange={changeName}
                   required
                 />
               </div>
-              {/* <div>
-                <label htmlFor='name'>Type In A Name For Your Photo: </label>
-              </div>
-              <input
-                id='name'
-                type='text'
-                name='name'
-                value={name}
-                onChange={changeName}
-                required
-              /> */}
-              {/* <input
-                id='file'
-                type='file'
-                name='file'
-                accept='image/*'
-                multiple
-                onChange={handleOnChange}
-                required
-              /> */}
             </form>
           </div>
         </Toolbar>
