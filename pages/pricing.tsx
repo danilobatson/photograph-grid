@@ -303,7 +303,12 @@ function PricingContent() {
                       />
                     </Box>
                   </CardContent>
-                  <button>Upload File</button>
+                  <CardActions>
+                    <Button type='submit' fullWidth variant='contained'>
+                      Upload Image
+                    </Button>
+                  </CardActions>
+                  {/* <button>Upload File</button> */}
                 </Card>
               )}
             </form>
