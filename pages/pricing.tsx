@@ -18,6 +18,7 @@ import Image from 'next/image';
 
 import {
   ImageSearch,
+  ImageCardUpload,
   Description,
   ImageGrid,
   ImageUpload,
@@ -225,38 +226,7 @@ export default function Pricing() {
                 required
               />
               {imageSrc && !uploadData && (
-                <Card>
-                  <CardHeader
-                    title={name}
-                    sx={{
-                      backgroundColor: (theme) =>
-                        theme.palette.mode === 'light'
-                          ? theme.palette.grey[200]
-                          : theme.palette.grey[700],
-                    }}
-                  />
-                  <CardContent>
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'baseline',
-                      }}
-                    >
-                      <Image
-                        src={imageSrc}
-                        width={150}
-                        height={150}
-                        alt='Uploaded image'
-                      />
-                    </Box>
-                  </CardContent>
-                  <CardActions>
-                    <Button type='submit' fullWidth variant='contained'>
-                      Upload Image
-                    </Button>
-                  </CardActions>
-                </Card>
+                <ImageCardUpload imageSrc={imageSrc} name={name} />
               )}
             </form>
           </div>
