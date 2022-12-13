@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import axios from 'axios';
-
 import {
   ImageSearch,
   PageInfo,
@@ -27,6 +26,7 @@ interface State {
   uploadData: string | undefined;
   images?: ImageType[];
   name: string;
+  open: boolean;
 }
 
 const initialState: State = {
@@ -35,6 +35,7 @@ const initialState: State = {
   uploadData: '',
   images: [],
   name: '',
+  open: false,
 };
 
 type ACTIONTYPE =
@@ -42,7 +43,8 @@ type ACTIONTYPE =
   | { type: 'SET_IMAGE_SRC'; payload: string }
   | { type: 'SET_SEARCH'; payload: string }
   | { type: 'SET_UPLOAD_DATA'; payload: string | undefined }
-  | { type: 'SET_NAME'; payload: string };
+  | { type: 'SET_NAME'; payload: string }
+  | { type: 'SET_OPEN'; payload: boolean };
 
 export default function Pricing() {
   const reducer = (state: State, action: ACTIONTYPE) => {
@@ -57,14 +59,19 @@ export default function Pricing() {
         return { ...state, uploadData: action.payload };
       case 'SET_NAME':
         return { ...state, name: action.payload };
+      case 'SET_OPEN':
+        return { ...state, open: action.payload };
       default:
         return state;
     }
   };
 
+  const handleOpen = () => dispatch({ type: 'SET_OPEN', payload: true });
+  const handleClose = () => dispatch({ type: 'SET_OPEN', payload: false });
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const { search, name, images, uploadData, imageSrc } = state;
+  const { search, name, images, uploadData, imageSrc, open } = state;
 
   const updateSearch = (e: React.SyntheticEvent) => {
     const target = e.target as HTMLInputElement;
@@ -84,7 +91,7 @@ export default function Pricing() {
       reader.readAsDataURL(file);
     }
 
-    if (size && size > 1000000) {
+    if (size && size > 800000) {
       alert('File too large');
       return;
     }
@@ -105,6 +112,7 @@ export default function Pricing() {
 
   const submitImage = async (event: React.SyntheticEvent) => {
     event.preventDefault();
+    dispatch({ type: 'SET_OPEN', payload: false });
 
     const form = event.target;
 
@@ -196,19 +204,25 @@ export default function Pricing() {
               handleOnChange={handleOnChange}
               changeName={changeName}
               submitImage={submitImage}
+              open={open}
+              handleOpen={handleOpen}
+              handleClose={handleClose}
             />
           </div>
         </Toolbar>
       </AppBar>
       <PageInfo />
-      <Typography
-        variant='h5'
-        align='left'
-        color='text.secondary'
-        component='p'
-      >
-        {images && images.length} images
-      </Typography>
+      <Container maxWidth='md' component='main'>
+        <Typography
+          variant='h5'
+          align='left'
+          color='white'
+          sx={{ pb: 2 }}
+          component='p'
+        >
+          {images && images.length} images
+        </Typography>
+      </Container>
       <Container maxWidth='md' component='main'>
         <Grid container spacing={5} alignItems='flex-end'>
           {images &&

@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../../styles/Home.module.css';
 import Image from 'next/image';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -17,6 +16,9 @@ const ImageCardUpload: React.FC<ImageUploadProps> = ({ imageSrc, name }) => {
     <Card>
       <CardHeader
         title={name}
+        titleTypographyProps={{
+          align: 'center',
+        }}
         sx={{
           backgroundColor: (theme) =>
             theme.palette.mode === 'light'

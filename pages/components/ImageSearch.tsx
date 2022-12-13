@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../../styles/Home.module.css';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
@@ -14,10 +13,9 @@ const ImageSearch: React.FC<ImageSearchProps> = ({ search, updateSearch }) => {
       <TextField
         id='standard-basic'
         label='Search images...'
-        variant='standard'
+        variant='outlined'
         size='small'
         type='search'
-        helperText='Search images by name'
         multiline
         value={search}
         onChange={updateSearch}

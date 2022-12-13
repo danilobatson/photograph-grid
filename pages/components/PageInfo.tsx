@@ -4,30 +4,27 @@ import Typography from '@mui/material/Typography';
 
 const PageInfo: React.FC = () => {
   return (
-    <Container
-      disableGutters
-      maxWidth='sm'
-      component='main'
-      sx={{ pt: 8, pb: 6 }}
-    >
+    <Container disableGutters maxWidth='sm' component='main' sx={{ py: 4 }}>
       <Typography
         component='h1'
         variant='h2'
         align='center'
-        color='text.primary'
+        color='white'
         gutterBottom
       >
         Image Uploader
       </Typography>
       <Typography
+        sx={{ pb: 1, pt:2}}
         variant='h5'
         align='center'
-        color='text.secondary'
+        color='white'
         component='p'
       >
         Get started by uploading your images to <code>api/photos</code>
-        <br />
-        <em>Image size limited to 1MB</em>
+      </Typography>
+      <Typography variant='h5' align='center' color='white' component='p'>
+        <em>Image size limited to 8,000 KB</em>
       </Typography>
     </Container>
   );
