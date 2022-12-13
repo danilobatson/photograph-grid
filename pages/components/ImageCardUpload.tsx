@@ -34,7 +34,14 @@ const ImageCardUpload: React.FC<ImageUploadProps> = ({ imageSrc, name }) => {
             alignItems: 'baseline',
           }}
         >
-          <Image src={imageSrc} width={150} height={150} alt='Uploaded image' />
+          <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
+            <Image
+              src={imageSrc}
+              width={150}
+              height={150}
+              alt='Uploaded image'
+            />
+          </div>
         </Box>
       </CardContent>
       <CardActions>

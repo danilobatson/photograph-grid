@@ -41,12 +41,14 @@ const ImageGallery: React.FC<ImageGridProps> = ({ image }) => {
               m: 0,
             }}
           >
-            <Image
-              src={imageSrc}
-              width={300}
-              height={300}
-              alt='Uploaded image'
-            />
+            <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
+              <Image
+                src={imageSrc}
+                width={300}
+                height={300}
+                alt='Uploaded image'
+              />
+            </div>
           </Box>
         </CardContent>
       </Card>
