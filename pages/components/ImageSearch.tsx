@@ -16,7 +16,6 @@ const ImageSearch: React.FC<ImageSearchProps> = ({ search, updateSearch }) => {
         variant='outlined'
         size='small'
         type='search'
-        multiline
         value={search}
         onChange={updateSearch}
         sx={{mt: 1}}
