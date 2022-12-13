@@ -192,7 +192,7 @@ export default function Pricing() {
         elevation={0}
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
-        <Toolbar sx={{ flexWrap: 'wrap' }}>
+        <Toolbar sx={{ flexWrap: 'wrap', mt: 1 }}>
           <ImageSearch search={search} updateSearch={updateSearch} />
 
           <nav></nav>

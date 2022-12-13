@@ -19,6 +19,7 @@ const ImageSearch: React.FC<ImageSearchProps> = ({ search, updateSearch }) => {
         multiline
         value={search}
         onChange={updateSearch}
+        sx={{mt: 1}}
       />
     </Typography>
   );
